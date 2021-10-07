@@ -1,7 +1,6 @@
 package stock;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class CurrentPrice {
     Double price;
