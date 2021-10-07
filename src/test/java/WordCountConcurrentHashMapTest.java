@@ -71,7 +71,7 @@ class WordCountConcurrentHashMapTest {
         ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
         List<WordCountConcurrentHashMap> fileLists = new ArrayList<>();
         Future<ConcurrentHashMap<String, Integer>> futureResult = null;
-        ConcurrentHashMap<String, Integer> resultMap;
+        ConcurrentHashMap<String, Integer> resultMap = new ConcurrentHashMap<>();
         //adding files to fileLists
         String folderPath = "src/main/resources/";
         File file = new File(folderPath);
@@ -80,7 +80,7 @@ class WordCountConcurrentHashMapTest {
             listOfFiles = file.listFiles();
         }
         for (int i = 0; i < listOfFiles.length; i++) {
-            fileLists.add(new WordCountConcurrentHashMap(listOfFiles[i].getAbsolutePath()));
+            fileLists.add(new WordCountConcurrentHashMap(listOfFiles[i].getAbsolutePath(), resultMap));
         }
         //submitting task with callable
         for (int i = 0; i < fileLists.size(); i++) {
