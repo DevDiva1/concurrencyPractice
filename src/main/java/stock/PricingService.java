@@ -48,11 +48,4 @@ public class PricingService implements Callable<ConcurrentHashMap<String, Curren
         }
         return new Stock(data[0], new CurrentPrice(Double.parseDouble(data[1]), LocalDate.parse(data[2])));
     }
-
-    public static List<Map.Entry<Stock, CurrentPrice>> getLatestStockPriceList(Map<Stock, CurrentPrice> map) {
-        List<Map.Entry<Stock, CurrentPrice>> list =
-                map.entrySet().stream()
-                        .collect(Collectors.toList());
-        return list;
-    }
 }

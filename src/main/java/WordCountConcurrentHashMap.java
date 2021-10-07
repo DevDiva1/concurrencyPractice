@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class WordCountConcurrentHashMap implements Callable<ConcurrentHashMap<String, Integer>> {
     final String fileName;
-    private static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+    private volatile static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
 
     public static Integer addWord(String word, ConcurrentHashMap<String, Integer> map) {
         //compute is atomic operations in the ConcurrentHashMap class
